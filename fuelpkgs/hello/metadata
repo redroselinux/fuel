@@ -1,0 +1,8 @@
+PackageName = "hello";
+PackageVersion = "2.12";
+PackageSource = "https://ftp.gnu.org/gnu/{{{PackageName}}}/{{{PackageName}}}-{{{PackageVersion}}}.tar.gz";
+PackageSourceSig = "https://ftp.gnu.org/gnu/{{{PackageName}}}/{{{PackageName}}}-{{{PackageVersion}}}.tar.gz.sig";
+CompilingWeight = "small";
+PackageDeps = "";
+BuildSystem = "autoconf CONFIGUREOPTS <<RedroseStandardConfigureOpts>> >> MAKEOPTS -j3 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

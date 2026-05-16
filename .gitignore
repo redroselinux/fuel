@@ -1,0 +1,13 @@
+# D files, executables
+.dub
+docs.json
+docs/
+/fuel
+fuel-test-*
+*.o
+*.obj
+*.lst
+
+# Built packages
+*-compiling
+*.tar.zst

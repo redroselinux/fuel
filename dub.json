@@ -1,0 +1,7 @@
+{
+  "name": "fuel",
+  "description": "A source-based package manager behind Car",
+  "license": "GPL-3.0-only",
+  "authors": ["mostypc123"],
+  "copyright": "Copyright © 2026, mostypc123"
+}

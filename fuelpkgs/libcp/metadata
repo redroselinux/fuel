@@ -1,0 +1,7 @@
+PackageName = "libcp";
+PackageVersion = "0.1";
+PackageSource = "https://github.com/redroselinux/libcp/archive/refs/tags/v{{{PackageVersion}}}.tar.gz";
+CompilingWeight = "tiny";
+PackageDeps = "";
+BuildSystem = "custom make";
+BuildSystem.InstallCommand = "mkdir -p package/usr package/usr/bin && cp libcp package/usr/bin";

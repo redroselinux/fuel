@@ -1,0 +1,8 @@
+PackageName = "tar";
+PackageVersion = "1.35";
+PackageSource = "https://ftp.gnu.org/gnu/{{{PackageName}}}/{{{PackageName}}}-{{{PackageVersion}}}.tar.xz";
+PackageSourceSig = "https://ftp.gnu.org/gnu/{{{PackageName}}}/{{{PackageName}}}-{{{PackageVersion}}}.tar.xz.sig";
+PackageDeps = "acl";
+CompilingWeight = "small-to-medium";
+BuildSystem = "autoconf CONFIGUREOPTS <<RedroseStandardConfigureOpts>> >> MAKEOPTS -j4 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";
