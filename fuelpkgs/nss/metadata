@@ -1,0 +1,7 @@
+PackageName = "nss";
+PackageVersion = "3.112.5";
+PackageSource = "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_112_5_RTM/src/nss-{{{PackageVersion}}}.tar.gz";
+CompilingWeight = "medium";
+PackageDeps = "nspr zlib";
+BuildSystem = "custom make -C nss BUILD_OPT=1 NSPR_INCLUDE_DIR=/usr/include/nspr USE_64=1 -j4";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make -C nss install";

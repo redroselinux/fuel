@@ -1,0 +1,7 @@
+PackageName = "ncurses";
+PackageVersion = "6.5";
+PackageSource = "https://ftp.gnu.org/gnu/ncurses/ncurses-{{{PackageVersion}}}.tar.gz";
+CompilingWeight = "small";
+PackageDeps = "";
+BuildSystem = "autoconf CONFIGUREOPTS --prefix=/usr --with-shared --without-normal --without-debug --without-ada --enable-widec >> MAKEOPTS -j4 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

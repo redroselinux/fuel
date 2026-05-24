@@ -1,0 +1,7 @@
+PackageName = "libadwaita";
+PackageVersion = "1.8.5";
+PackageSource = "https://download.gnome.org/sources/libadwaita/1.8/libadwaita-{{{PackageVersion}}}.tar.xz";
+CompilingWeight = "medium";
+PackageDeps = "gtk4";
+BuildSystem = "custom meson setup build --prefix=/usr --buildtype=release && meson compile -C build && DESTDIR=--DESTINATION-- meson install -C build";
+BuildSystem.InstallCommand = "true";

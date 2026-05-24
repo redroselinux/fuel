@@ -1,0 +1,7 @@
+PackageName = "libpng";
+PackageVersion = "1.6.58";
+PackageSource = "https://download.sourceforge.net/libpng/libpng-{{{PackageVersion}}}.tar.xz";
+CompilingWeight = "small";
+PackageDeps = "zlib";
+BuildSystem = "autoconf CONFIGUREOPTS <<RedroseStandardConfigureOpts>> >> MAKEOPTS -j4 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

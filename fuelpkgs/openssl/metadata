@@ -1,0 +1,8 @@
+PackageName = "openssl";
+PackageVersion = "3.5.6";
+PackageSource = "https://www.openssl.org/source/openssl-{{{PackageVersion}}}.tar.gz";
+PackageSourceSig = "https://www.openssl.org/source/openssl-{{{PackageVersion}}}.tar.gz.asc";
+CompilingWeight = "medium";
+PackageDeps = "";
+BuildSystem = "custom ./Configure --prefix=/usr --openssldir=/etc/ssl shared zlib && make -j4";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install_sw";

@@ -1,0 +1,7 @@
+PackageName = "iwd";
+PackageVersion = "3.12";
+PackageSource = "https://www.kernel.org/pub/linux/network/wireless/iwd-{{{PackageVersion}}}.tar.xz";
+CompilingWeight = "small";
+PackageDeps = "readline";
+BuildSystem = "custom [ -d ../ell ] || git clone --depth 1 https://git.kernel.org/pub/scm/libs/ell/ell.git ../ell && ./configure --prefix=/usr --disable-systemd && make -j4";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

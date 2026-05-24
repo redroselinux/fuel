@@ -1,0 +1,8 @@
+PackageName = "curl";
+PackageVersion = "8.20.0";
+PackageSource = "https://curl.se/download/curl-{{{PackageVersion}}}.tar.xz";
+PackageSourceSig = "https://curl.se/download/curl-{{{PackageVersion}}}.tar.xz.asc";
+CompilingWeight = "small";
+PackageDeps = "openssl gnutls";
+BuildSystem = "autoconf CONFIGUREOPTS --disable-selinux --disable-apparmor --with-openssl >> MAKEOPTS -j4 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

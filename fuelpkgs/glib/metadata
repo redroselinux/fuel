@@ -1,0 +1,7 @@
+PackageName = "glib";
+PackageVersion = "2.88.1";
+PackageSource = "https://download.gnome.org/sources/glib/2.88/glib-{{{PackageVersion}}}.tar.xz";
+CompilingWeight = "medium";
+PackageDeps = "pcre2 libffi zlib";
+BuildSystem = "custom meson setup build --prefix=/usr --buildtype=release -Dtests=false && meson compile -C build && DESTDIR=--DESTINATION-- meson install -C build";
+BuildSystem.InstallCommand = "true";

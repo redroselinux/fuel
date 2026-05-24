@@ -1,0 +1,8 @@
+PackageName = "gnutls";
+PackageVersion = "3.8.13";
+PackageSource = "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-{{{PackageVersion}}}.tar.xz";
+PackageSourceSig = "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-{{{PackageVersion}}}.tar.xz.sig";
+CompilingWeight = "medium";
+PackageDeps = "nettle libtasn1 p11-kit";
+BuildSystem = "autoconf CONFIGUREOPTS <<RedroseStandardConfigureOpts>> --with-system-priority-file=/etc/gnutls/default-priorities >> MAKEOPTS -j4 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

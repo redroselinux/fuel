@@ -1,0 +1,7 @@
+PackageName = "acl";
+PackageVersion = "2.3.2";
+PackageSource = "https://download.savannah.gnu.org/releases/acl/acl-{{{PackageVersion}}}.tar.xz";
+CompilingWeight = "small";
+PackageDeps = "attr";
+BuildSystem = "autoconf CONFIGUREOPTS <<RedroseStandardConfigureOpts>> >> MAKEOPTS -j3 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

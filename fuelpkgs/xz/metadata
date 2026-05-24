@@ -1,0 +1,8 @@
+PackageName = "xz";
+PackageVersion = "5.8.3";
+PackageSource = "https://github.com/tukaani-project/xz/releases/download/v{{{PackageVersion}}}/xz-{{{PackageVersion}}}.tar.gz";
+PackageSourceSig = "https://github.com/tukaani-project/xz/releases/download/v{{{PackageVersion}}}/xz-{{{PackageVersion}}}.tar.gz.sig";
+CompilingWeight = "small";
+PackageDeps = "";
+BuildSystem = "autoconf CONFIGUREOPTS <<RedroseStandardConfigureOpts>> >> MAKEOPTS -j4 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

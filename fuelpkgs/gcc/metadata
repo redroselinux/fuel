@@ -1,0 +1,8 @@
+PackageName = "gcc";
+PackageVersion = "16.1.0";
+PackageSource = "https://ftp.gnu.org/gnu/gcc/gcc-{{{PackageVersion}}}/gcc-{{{PackageVersion}}}.tar.xz";
+PackageSourceSig = "https://ftp.gnu.org/gnu/gcc/gcc-{{{PackageVersion}}}/gcc-{{{PackageVersion}}}.tar.xz.sig";
+CompilingWeight = "huge";
+PackageDeps = "gmp mpfr mpc";
+BuildSystem = "autoconf CONFIGUREOPTS <<RedroseStandardConfigureOpts>> --enable-languages=c,c++ --disable-multilib --with-system-zlib >> MAKEOPTS -j11 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

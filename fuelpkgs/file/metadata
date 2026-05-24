@@ -1,0 +1,7 @@
+PackageName = "file";
+PackageVersion = "5.45";
+PackageSource = "https://astron.com/pub/file/file-{{{PackageVersion}}}.tar.gz";
+CompilingWeight = "small";
+PackageDeps = "";
+BuildSystem = "autoconf CONFIGUREOPTS <<RedroseStandardConfigureOpts>> >> MAKEOPTS -j3 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

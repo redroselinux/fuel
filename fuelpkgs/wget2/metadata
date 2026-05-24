@@ -1,0 +1,7 @@
+PackageName = "wget2";
+PackageVersion = "2.2.1";
+PackageSource = "https://ftp.gnu.org/gnu/wget2/wget2-{{{PackageVersion}}}.tar.gz";
+CompilingWeight = "small";
+PackageDeps = "libpcre2 libnghttp2 zlib";
+BuildSystem = "autoconf CONFIGUREOPTS <<RedroseStandardConfigureOpts>> >> MAKEOPTS -j4 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

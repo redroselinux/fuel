@@ -1,0 +1,7 @@
+PackageName = "readline";
+PackageVersion = "8.3";
+PackageSource = "https://ftp.gnu.org/gnu/readline/readline-{{{PackageVersion}}}.tar.gz";
+CompilingWeight = "small";
+PackageDeps = "ncurses";
+BuildSystem = "autoconf CONFIGUREOPTS <<RedroseStandardConfigureOpts>> >> MAKEOPTS -j4 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

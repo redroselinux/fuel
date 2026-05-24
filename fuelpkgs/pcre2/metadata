@@ -1,0 +1,7 @@
+PackageName = "pcre2";
+PackageVersion = "10.47";
+PackageSource = "https://github.com/PCRE2Project/pcre2/releases/download/pcre2-{{{PackageVersion}}}/pcre2-{{{PackageVersion}}}.tar.bz2";
+CompilingWeight = "small";
+PackageDeps = "zlib bzip2";
+BuildSystem = "autoconf CONFIGUREOPTS <<RedroseStandardConfigureOpts>> --enable-pcre2-16 --enable-pcre2-32 --enable-jit >> MAKEOPTS -j4 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

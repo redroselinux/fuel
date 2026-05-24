@@ -1,0 +1,7 @@
+PackageName = "python";
+PackageVersion = "3.14.5";
+PackageSource = "https://www.python.org/ftp/python/{{{PackageVersion}}}/Python-{{{PackageVersion}}}.tar.xz";
+CompilingWeight = "medium-to-large";
+PackageDeps = "";
+BuildSystem = "autoconf CONFIGUREOPTS <<RedroseStandardConfigureOpts>> --enable-optimizations --with-system-expat --with-system-ffi >> MAKEOPTS -j11 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

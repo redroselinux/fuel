@@ -1,0 +1,7 @@
+PackageName = "libnl";
+PackageVersion = "3.12.0";
+PackageSource = "https://github.com/thom311/libnl/releases/download/libnl3_12_0/libnl-{{{PackageVersion}}}.tar.gz";
+CompilingWeight = "small";
+PackageDeps = "";
+BuildSystem = "autoconf CONFIGUREOPTS <<RedroseStandardConfigureOpts>> >> MAKEOPTS -j4 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

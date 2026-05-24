@@ -1,0 +1,7 @@
+PackageName = "gzip";
+PackageVersion = "1.13";
+PackageSource = "https://ftp.gnu.org/gnu/{{{PackageName}}}/{{{PackageName}}}-{{{PackageVersion}}}.tar.xz";
+CompilingWeight = "small";
+PackageDeps = "";
+BuildSystem = "autoconf CONFIGUREOPTS <<RedroseStandardConfigureOpts>> >> MAKEOPTS -j3 >>";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";

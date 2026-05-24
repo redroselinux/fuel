@@ -1,0 +1,7 @@
+PackageName = "libjpeg-turbo";
+PackageVersion = "3.1.4.1";
+PackageSource = "https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/{{{PackageVersion}}}/libjpeg-turbo-{{{PackageVersion}}}.tar.gz";
+CompilingWeight = "small";
+PackageDeps = "cmake nasm";
+BuildSystem = "custom cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DENABLE_STATIC=FALSE && cmake --build build -j4";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- cmake --install build";

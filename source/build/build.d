@@ -162,6 +162,10 @@ int build_package(string name, bool verbose)
     }
 
     chdir(working_dir);
+    if (exists("package"))
+    {
+        rmdirRecurse("package");
+    }
     mkdir("package");
 
     if (buildsystem.startsWith("autoconf"))

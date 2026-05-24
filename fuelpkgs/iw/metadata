@@ -1,0 +1,7 @@
+PackageName = "iw";
+PackageVersion = "6.17";
+PackageSource = "https://www.kernel.org/pub/software/network/iw/iw-{{{PackageVersion}}}.tar.xz";
+CompilingWeight = "small";
+PackageDeps = "libnl";
+BuildSystem = "custom make";
+BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";
