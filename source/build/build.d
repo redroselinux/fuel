@@ -5,7 +5,7 @@ import std.process : execute, wait, executeShell;
 import std.format : format;
 import std.path : expandTilde;
 import std.string : indexOf, replace, split, join;
-import std.algorithm : startsWith;
+import std.algorithm;
 import log;
 import parse_metadata_file;
 
@@ -295,34 +295,6 @@ int build_package(string name, bool verbose)
         return 1;
     }
 
-    writeln(info("Stripping binaries"));
-    foreach (string entry; dirEntries(dest, SpanMode.depth))
-    {
-        if (!isFile(entry) || isSymlink(entry) || getSize(entry) < 4)
-            continue;
-
-        auto f = File(entry, "r");
-        ubyte[4] magic;
-        f.rawRead(magic);
-        f.close();
-
-        if (magic == [0x7F, 0x45, 0x4C, 0x46])
-        {
-            if (verbose)
-                writeln("verbose: strip --strip-unneeded " ~ entry);
-
-            auto strip_process = execute([
-                "strip", "--strip-unneeded", "-R", ".note.gnu.build-id", entry
-            ]);
-
-            if (strip_process.status != 0)
-            {
-                writeln(warn("Failed to strip: " ~ entry));
-                partial_failure = true;
-            }
-        }
-    }
-
     writeln(info("Creating Car package"));
     string pkgversion;
     if (auto p = "PackageVersion" in metadata)
@@ -368,6 +340,14 @@ int build_package(string name, bool verbose)
     if (touch_process.status != 0)
     {
         writeln(error("Touch normalization failed!"));
+        return 1;
+    }
+
+    if (dirEntries("package", SpanMode.shallow)
+        .map!(e => e.name)
+        .array == ["car"])
+    {
+        writeln(error("Package is empty for some reason - look at the metadata file!"));
         return 1;
     }
 
