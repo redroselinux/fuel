@@ -3,5 +3,5 @@ PackageVersion = "6.6";
 PackageSource = "https://ftp.gnu.org/gnu/{{{PackageName}}}/{{{PackageName}}}-{{{PackageVersion}}}.tar.gz";
 PackageDeps = "";
 CompilingWeight = "small-to-medium";
-BuildSystem = "autoconf CONFIGUREOPTS --prefix=/usr --enable-widec --enable-termlib --enable-shared >> MAKEOPTS -j4 >>";
+BuildSystem = "autoconf CONFIGUREOPTS --prefix=/usr --with-normal --with-wide-char --with-libtool >> MAKEOPTS -j4 >>";
 BuildSystem.InstallCommand = "DESTDIR=--DESTINATION-- make install";
